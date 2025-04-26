@@ -28,7 +28,7 @@ proc rand_pos(): Pos =
 var player = Player(pos: Pos(x: 0, y: 0), dir: NoDir, trail: @[], size: 4)
 var apple = Apple(pos: rand_pos())
 
-let cnv = getElementById("c6")
+let cnv = getElementById("c1")
 let ctx = cnv.getContext2d()
 
 proc draw_bg() =
