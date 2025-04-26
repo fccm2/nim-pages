@@ -34,7 +34,7 @@ let ctx = cnv.getContext2d()
 proc draw_bg() =
   ctx.beginPath()
   ctx.fillStyle(255, 255, 255)
-  ctx.rect(0, 0, 410, 300)
+  ctx.rect(0, 0, 420, 300)
   ctx.fill()
 
 proc draw_r(p: Pos) =
@@ -69,9 +69,9 @@ proc player_moves(p: var Pos, d: Dir) =
   else: discard
 
 proc wrap_sides(p: var Pos) =
-  if p.x > 410: p.x = 0
+  if p.x > 420: p.x = 0
   if p.y > 300: p.y = 0
-  if p.x < 0: p.x = 410
+  if p.x < 0: p.x = 420
   if p.y < 0: p.y = 300
 
 proc new_apple(p: var Pos, exclude: seq[Pos]) =
