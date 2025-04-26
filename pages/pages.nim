@@ -6,6 +6,7 @@ type
   Gradient* = JsObject
   KeyEvent* = JsObject
   MouseEvent* = JsObject
+  JsClientRect* = JsObject
 
 proc getElementById*(id: cstring): JsCanvas
   {.importjs: "document.getElementById(#)".}
@@ -61,6 +62,15 @@ proc setInterval*(f: proc(), d: cint)
   {.importjs: "setInterval(#, #)".}
 
 proc getKeyCode*(k: KeyEvent): cint {.importjs: "#.keyCode".}
+proc getKey*(k: KeyEvent): cstring {.importjs: "#.key".}
+
+proc getCanvasBoundingRect*(c: JsCanvas): JsClientRect {.importjs: "#.getBoundingClientRect()".}
+
+proc getLeft*(r: JsClientRect): cint {.importjs: "#.left".}
+proc getTop*(r: JsClientRect): cint {.importjs: "#.top".}
+
+proc getClientX*(m: MouseEvent): cint {.importjs: "#.clientX".}
+proc getClientY*(m: MouseEvent): cint {.importjs: "#.clientY".}
 
 proc log*(msg: cstring) {.importjs: "console.log(#)".}
 proc alert*(msg: cstring) {.importjs: "alert(#)".}
