@@ -4,6 +4,8 @@ type
   JsCanvas* = JsObject
   Ctx2D* = JsObject
   Gradient* = JsObject
+  KeyEvent* = JsObject
+  MouseEvent* = JsObject
 
 proc getElementById*(id: cstring): JsCanvas
   {.importjs: "document.getElementById(#)".}
@@ -36,6 +38,23 @@ proc createLinearGradient*(x1: cint, y1: cint, x2: cint, y2: cint): Gradient
   {.importjs: "#.createLinearGradient(#, #, #, #)".}
 
 proc fillGradient*(ctx: Ctx2D, grad: Gradient) {.importjs: "#.fillStyle = #".}
+
+proc addKeyDownEventListener*(f: proc(k: KeyEvent))
+  {.importjs: "window.addEventListener('keydown', #)".}
+
+proc addKeyUpEventListener*(f: proc(k: KeyEvent))
+  {.importjs: "window.addEventListener('keyup', #)".}
+
+proc addMouseDownEventListener*(f: proc(m: MouseEvent))
+  {.importjs: "window.addEventListener('mousedown', #)".}
+
+proc addMouseUpEventListener*(f: proc(m: MouseEvent))
+  {.importjs: "window.addEventListener('mouseup', #)".}
+
+proc setInterval*(f: proc(), d: cint)
+  {.importjs: "setInterval(#, #)".}
+
+proc getKeyCode*(k: KeyEvent): cint {.importjs: "#.keyCode".}
 
 proc log*(msg: cstring) {.importjs: "console.log(#)".}
 proc alert*(msg: cstring) {.importjs: "alert(#)".}
