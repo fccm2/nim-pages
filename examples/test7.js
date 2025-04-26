@@ -304,6 +304,8 @@ var objectID_687866018 = [0];
 var cnv_469762055 = document.getElementById("c1");
 var ctx_469762056 = cnv_469762055.getContext('2d');
 var circles_469762061 = [{list: []}];
+ctx_469762056.font = "normal 12px Arial";
+ctx_469762056.fillText("click in the canvas", 90, 18);
 
 function add_33556419(x_33556420, x_33556420_Idx, y_33556421) {
           if (x_33556420[x_33556420_Idx] === null) { x_33556420[x_33556420_Idx] = []; }
