@@ -19,6 +19,9 @@ proc rect*(ctx: Ctx2D, x: cint, y: cint, w: cint, h: cint)
 proc circle*(ctx: Ctx2D, cx: cdouble, cy: cdouble, r: cdouble)
   {.importjs: "#.arc(#, #, #, 0, 2 * Math.PI)".}
 
+proc circle*(ctx: Ctx2D, cx: cint, cy: cint, r: cint)
+  {.importjs: "#.arc(#, #, #, 0, 2 * Math.PI)".}
+
 proc moveTo*(ctx: Ctx2D, x: cdouble, y: cdouble) {.importjs: "#.moveTo(#, #)".}
 proc lineTo*(ctx: Ctx2D, x: cdouble, y: cdouble) {.importjs: "#.lineTo(#, #)".}
 
@@ -27,6 +30,9 @@ proc closePath*(ctx: Ctx2D) {.importjs: "#.closePath()".}
 
 proc strokeStyle*(ctx: Ctx2D, r: cint, g: cint, b: cint) {.importjs: "#.strokeStyle = 'rgb(#, #, #)'".}
 proc fillStyle*(ctx: Ctx2D, r: cint, g: cint, b: cint) {.importjs: "#.fillStyle = 'rgb(#, #, #)'".}
+
+proc strokeStyle*(ctx: Ctx2D, c: cstring) {.importjs: "#.strokeStyle = #".}
+proc fillStyle*(ctx: Ctx2D, c: cstring) {.importjs: "#.fillStyle = #".}
 
 proc fill*(ctx: Ctx2D) {.importjs: "#.fill()".}
 proc stroke*(ctx: Ctx2D) {.importjs: "#.stroke()".}
