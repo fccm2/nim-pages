@@ -710,7 +710,7 @@ function rand_pos_469762084() {
 }
 var player_469762154 = [{pos: {x: 0, y: 0}, dir: 4, trail: [], size: 4}];
 var apple_469762155 = [{pos: rand_pos_469762084()}];
-var cnv_469762156 = document.getElementById("c6");
+var cnv_469762156 = document.getElementById("c1");
 var ctx_469762157 = cnv_469762156.getContext('2d');
 
 function key_event_469762400(k_469762401) {
