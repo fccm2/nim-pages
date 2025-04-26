@@ -40,6 +40,9 @@ proc stroke*(ctx: Ctx2D) {.importjs: "#.stroke()".}
 
 proc lineWidth*(ctx: Ctx2D, w: cdouble) {.importjs: "#.lineWidth = #".}
 
+proc setFont*(ctx: Ctx2D, f: cstring) {.importjs: "#.font = #".}
+proc fillText*(ctx: Ctx2D, s: cstring, x: cint, y: cint) {.importjs: "#.fillText(#, #, #)".}
+
 proc addColorStop*(grad: Gradient, offset: cdouble, color: cstring) {.importjs: "#.addColorStop(#, #)".}
 proc createLinearGradient*(x1: cint, y1: cint, x2: cint, y2: cint): Gradient
   {.importjs: "#.createLinearGradient(#, #, #, #)".}

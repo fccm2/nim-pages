@@ -13,6 +13,9 @@ let ctx = cnv.getContext2d()
 
 var circles = Circles(list: @[])
 
+setFont(ctx, "normal 12px Arial")
+fillText(ctx, "click in the canvas", 90, 18)
+
 proc draw_c(x: cint, y: cint) =
   ctx.beginPath()
   ctx.fillStyle(240, 180, 20)
