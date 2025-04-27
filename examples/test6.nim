@@ -76,8 +76,10 @@ proc wrap_sides(p: var Pos) =
 
 proc new_apple(p: var Pos, exclude: seq[Pos]) =
   p = rand_pos()
-  while p in exclude:
+  var i = 0
+  while p in exclude and i < 20:
     p = rand_pos()
+    i += 1
 
 proc update() =
   player_moves(player.pos, player.dir)
