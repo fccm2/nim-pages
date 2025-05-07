@@ -64,6 +64,12 @@ proc addMouseDownEventListener*(f: proc(m: MouseEvent))
 proc addMouseUpEventListener*(f: proc(m: MouseEvent))
   {.importjs: "window.addEventListener('mouseup', #)".}
 
+proc addMouseMoveEventListener*(f: proc(m: MouseEvent))
+  {.importjs: "window.addEventListener('mousemove', #)".}
+
+proc addMouseEventListener*(e: cstring, f: proc(m: MouseEvent))
+  {.importjs: "window.addEventListener(#, #)".}
+
 proc setInterval*(f: proc(), d: cint)
   {.importjs: "setInterval(#, #)".}
 
@@ -77,6 +83,9 @@ proc getTop*(r: JsClientRect): cint {.importjs: "#.top".}
 
 proc getClientX*(m: MouseEvent): cint {.importjs: "#.clientX".}
 proc getClientY*(m: MouseEvent): cint {.importjs: "#.clientY".}
+
+proc getOffsetX*(m: MouseEvent): cint {.importjs: "#.offsetX".}
+proc getOffsetY*(m: MouseEvent): cint {.importjs: "#.offsetY".}
 
 proc log*(msg: cstring) {.importjs: "console.log(#)".}
 proc alert*(msg: cstring) {.importjs: "alert(#)".}
