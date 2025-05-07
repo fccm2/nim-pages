@@ -3,6 +3,7 @@ import jsffi
 type
   JsCanvas* = JsObject
   Ctx2D* = JsObject
+  Image* = JsObject
   Gradient* = JsObject
   KeyEvent* = JsObject
   MouseEvent* = JsObject
@@ -42,6 +43,13 @@ proc fill*(ctx: Ctx2D) {.importjs: "#.fill()".}
 proc stroke*(ctx: Ctx2D) {.importjs: "#.stroke()".}
 
 proc lineWidth*(ctx: Ctx2D, w: cdouble) {.importjs: "#.lineWidth = #".}
+
+proc newImage*(): Image {.importjs: "new Image()".}
+proc setImgSrc*(img: Image, filename: cstring) {.importjs: "#.src = #".}
+proc imgOnload*(img: Image, cb: proc()) {.importjs: "#.onload = #".}
+
+proc drawImage8*(ctx: Ctx2D, img: Image, sx: cint, sy: cint, sw: cint, sh: cint, dx: cint, dy: cint, dw: cint, dh: cint)
+  {.importjs: "#.drawImage(#, #, #, #, #, #, #, #, #)".}
 
 proc setFont*(ctx: Ctx2D, f: cstring) {.importjs: "#.font = #".}
 proc fillText*(ctx: Ctx2D, s: cstring, x: cint, y: cint) {.importjs: "#.fillText(#, #, #)".}
