@@ -26,6 +26,9 @@ proc circle*(ctx: Ctx2D, cx: cint, cy: cint, r: cint)
 proc moveTo*(ctx: Ctx2D, x: cdouble, y: cdouble) {.importjs: "#.moveTo(#, #)".}
 proc lineTo*(ctx: Ctx2D, x: cdouble, y: cdouble) {.importjs: "#.lineTo(#, #)".}
 
+proc moveTo*(ctx: Ctx2D, x: cint, y: cint) {.importjs: "#.moveTo(#, #)".}
+proc lineTo*(ctx: Ctx2D, x: cint, y: cint) {.importjs: "#.lineTo(#, #)".}
+
 proc beginPath*(ctx: Ctx2D) {.importjs: "#.beginPath()".}
 proc closePath*(ctx: Ctx2D) {.importjs: "#.closePath()".}
 
